@@ -18,33 +18,24 @@ const Cart = ({ cart }) => {
                                 <span className="cart__total">Price</span>
                             </div>
                             <div className="cart__body">
-                                {
-                                   cart.map((book) => {
+                                {cart.map((book) => {
                                     return (
                                         <div className="cart__item">
-                                    <div className="cart__book">
-                                        <img src={book.url} className="cart__book--img" alt="" />
-                                    </div>
-                                    <div className="cart__book--info">
-                                        <span className="cart__book--title">
-                                            {book.title}
-                                        </span>
-                                        <span className="cart__book--price">
-                                            ${(book.salePrice || book.originalPrice).toFixed(2)}
-                                        </span>
-                                        <button className="cart__book--remove">
-                                            Remove
-                                        </button>
-                                    </div>
-                                    <div className="cart__quantity">
-                                        <input type="number" min={0} max={99} className="cart__input" />
-                                    </div>
-                                    <div className="cart__total">
-                                        $10.00
-                                    </div>
-                                    </div>
+                                        <div className="cart__book">
+                                            <img src={book.url} className="cart__book--img" alt="" />
+                                        </div>
+                                        <div className="cart__book--info">
+                                            <span className="cart__book--title">{book.title}</span>
+                                            <span className="cart__book--price">${(book.salePrice || book.originalPrice).toFixed(2)}</span>
+                                            <button className="cart__book--remove">Remove</button>
+                                        </div>
+                                        <div className="cart__quantity">
+                                            <input type="number" min={0} max={99} className="cart__input" />
+                                        </div>
+                                        <div className="cart__total">$10.00</div>
+                                        </div>
                                     )
-                                   }) 
+                                    })
                                 }
                                 </div>
                                 <div className="total">

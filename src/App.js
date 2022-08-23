@@ -3,10 +3,11 @@ import Nav from './components/Nav'
 import Footer from './components/Footer'
 import Home from './pages/Home'
 import Books from './pages/Books'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 import { books } from "./data"
 import  BookInfo  from "./pages/BookInfo"
 import Cart from './pages/Cart'
+
 
 
 function App() {
@@ -21,16 +22,19 @@ function App() {
   }, [cart])
 
   return (
-    <Router>
+    
       <div className="App">
       <Nav />
-      <Route path="/" exact component={Home} />
-      <Route path="/books" exact render={() => <Books books={books} />}/>
-      <Route path="/books/:id" render={() => <BookInfo books={books} addToCart={addToCart}/>}/>
-      <Route path="/cart" render={() => <Cart books={books} cart={cart}/>}/>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/books" element={<Books books={books} />}/>
+        <Route path="/books/:id" element={<BookInfo books={books} addToCart={addToCart}/>}/>
+        <Route path="/cart" element={<Cart cart={cart}/>}/>
       <Footer />
+      </Routes>
+      
     </div>
-    </Router>
+    
     
   );
 }
