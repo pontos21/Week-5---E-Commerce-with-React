@@ -42,6 +42,7 @@ const Cart = ({ cart }) => {
                                     <div className="cart__total">
                                         $10.00
                                     </div>
+                                    </div>
                                     )
                                    }) 
                                 }
@@ -69,7 +70,6 @@ const Cart = ({ cart }) => {
                     </div>
                 </div>
             </div>
-        </div>
     );
 }
 
