@@ -30,8 +30,8 @@ function App() {
         <Route path="/books" element={<Books books={books} />}/>
         <Route path="/books/:id" element={<BookInfo books={books} addToCart={addToCart}/>}/>
         <Route path="/cart" element={<Cart cart={cart}/>}/>
-      <Footer />
       </Routes>
+      <Footer />
       
     </div>
     
