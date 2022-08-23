@@ -19,18 +19,18 @@ const Cart = ({ cart }) => {
                             </div>
                             <div className="cart__body">
                                 {
-                                    cart.map(book => {})
-                                }
-                                <div className="cart__item">
+                                   cart.map((book) => {
+                                    return (
+                                        <div className="cart__item">
                                     <div className="cart__book">
-                                        <img src="https://covers.openlibrary.org/b/id/8091016-L.jpg" className="cart__book--img" alt="" />
+                                        <img src={book.url} className="cart__book--img" alt="" />
                                     </div>
                                     <div className="cart__book--info">
                                         <span className="cart__book--title">
-                                            Crack the Coding Interview
+                                            {book.title}
                                         </span>
                                         <span className="cart__book--price">
-                                            $10.00
+                                            ${(book.salePrice || book.originalPrice).toFixed(2)}
                                         </span>
                                         <button className="cart__book--remove">
                                             Remove
@@ -42,6 +42,9 @@ const Cart = ({ cart }) => {
                                     <div className="cart__total">
                                         $10.00
                                     </div>
+                                    )
+                                   }) 
+                                }
                                 </div>
                                 <div className="total">
                                     <div className="total__item total__sub-total">

@@ -12,6 +12,10 @@ import { counter } from "@fortawesome/fontawesome-svg-core";
 function App() {
   const [cart, setCart] = useState([]);
 
+  function addToCart(book) {
+    setCart([...cart, book])
+  }
+
   function addItemToCart(book) {
     const dupeItem = cart.find((item) => item.id === book.id);
     setCart((oldCart) =>
@@ -47,14 +51,6 @@ function App() {
 
   function removeItem(item) {
     setCart((oldCart) => oldCart.filter((cartItem) => cartItem.id !== item.id));
-  }
-
-  function numberOfItems() {
-    let counter = 0;
-    cart.forEach((item) => {
-      counter += +item.quantity;
-    });
-    return counter;
   }
 
   function numberOfItems() {
