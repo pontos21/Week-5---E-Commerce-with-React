@@ -1,7 +1,19 @@
 import React from 'react';
 
-const Cart = ({ cart }) => {
-    return (
+const Cart = ({ cart, changeQuantity }) => {
+    const total = () => {
+        let price = 0
+        cart.forEach((item) => {
+            price += +(
+                (item.salePrice || item.originalPrice) * item.quantity
+            )
+        })
+        return price
+    }
+}
+
+
+return (
         <div id="books__body">
             <div className="books__main">
                 <div className="books__container">
@@ -30,9 +42,9 @@ const Cart = ({ cart }) => {
                                             <button className="cart__book--remove">Remove</button>
                                         </div>
                                         <div className="cart__quantity">
-                                            <input type="number" min={0} max={99} className="cart__input" />
+                                            <input type="number" min={0} max={99} className="cart__input" value={book.quantity} onChange={(event) => changeQuantity(book, event.target.value) } />
                                         </div>
-                                        <div className="cart__total">$10.00</div>
+                                        <div className="cart__total">${((book.salePrice || book.originalPrice) * book.quantity).toFixed(2)}</div>
                                         </div>
                                     )
                                     })
@@ -41,15 +53,15 @@ const Cart = ({ cart }) => {
                                 <div className="total">
                                     <div className="total__item total__sub-total">
                                         <span>Subtotal</span>
-                                        <span>$9.00</span>
+                                        <span>${(total() * 0.1).toFixed(2)}</span>
                                     </div>
                                     <div className="total__item total__sub-tax">
                                         <span>Tax</span>
-                                        <span>$1.00</span>
+                                        <span>${(total() * 0.1).toFixed(2)}</span>
                                     </div>
                                     <div className="total__item total__sub-price">
                                         <span>Total</span>
-                                        <span>$10.00</span>
+                                        <span>${total().toFixed(2)}</span>
                                     </div>
                                     <button className="btn btn__checkout no-cursor"
                                     onClick={() => alert(`Havent got around to doing this`)}>
@@ -61,7 +73,8 @@ const Cart = ({ cart }) => {
                     </div>
                 </div>
             </div>
-    );
+    )
 }
+
 
 export default Cart;
