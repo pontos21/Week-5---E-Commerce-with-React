@@ -7,7 +7,7 @@ import Price from './Price';
 const Book = ({ book }) => {
     const [img, setImg ] = useState()
 
-    const mountedRef = useRef(true)
+    const mountedRef = useRef(false)
     
     useEffect(() => {
         const image = new Image()
@@ -20,7 +20,7 @@ const Book = ({ book }) => {
             }, 300)
         }
         return () => {
-          mountedRef.current = false  
+          mountedRef.current = true  
         }
     })
 
