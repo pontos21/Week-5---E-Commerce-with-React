@@ -14,7 +14,9 @@ const Book = ({ book }) => {
         image.src = book.url
         image.onload = () => {
             setTimeout(() => {
-              setImg(image)
+                if (mountedRef.current) {
+                   setImg(image) 
+                }
             }, 300)
         }
         return () => {
@@ -39,7 +41,8 @@ const Book = ({ book }) => {
             <Rating rating={book.rating} />
             <Price salePrice={book.salePrice} originalPrice={book.originalPrice} />
             </>
-            ): (<>
+            ): (
+            <>
             <div className="book__img--skeleton"></div>
             <div className="skeleton book__title--skeleton"></div>
             <div className="skeleton book__rating--skeleton"></div>

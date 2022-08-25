@@ -59,7 +59,7 @@ const BookInfo = ({ books, addToCart, cart }) => {
                                         <button className="btn">Checkout</button>
                                     </Link>
                                 ) : (
-                                    <button className="btn" onClick={() => addBookToCart(book)}>Add to cart</button>
+                                    <button className="btn" onClick={() => addToCart(book)}>Add to cart</button>
                                 )}
                                 
                             </div>
