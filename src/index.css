@@ -321,6 +321,7 @@ HIGHLIGHTS
 .highlight__wrapper {
   display: flex;
   flex-wrap: wrap;
+  
 }
 
 .highlight {
@@ -329,6 +330,7 @@ HIGHLIGHTS
   display: flex;
   align-items: center;
   flex-direction: column;
+  
 }
 
 .highlight__para {
